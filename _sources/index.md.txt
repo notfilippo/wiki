@@ -19,7 +19,7 @@ about/index
 :maxdepth: 1
 
 
-_docs/fenice-steeringwheel/index
+docs/fenice-steeringwheel/index
 
 ```
 
@@ -29,6 +29,6 @@ _docs/fenice-steeringwheel/index
 :maxdepth: 1
 
 
-_docs/documentation/index
+docs/documentation/index
 
 ```
