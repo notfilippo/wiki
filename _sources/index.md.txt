@@ -14,7 +14,7 @@ about/index
 
 
 ```{toctree}
-:caption: fenice-steeringwheel
+:caption: Steering Wheel
 :name: sec-fenice-steeringwheel
 :maxdepth: 1
 
