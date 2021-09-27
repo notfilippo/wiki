@@ -1,5 +1,7 @@
 # About
 
+General instructions on how to read and maintain this wiki.
+
 ```{toctree}
 :maxdepth: 1
 
