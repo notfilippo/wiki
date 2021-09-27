@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Steering Wheel" href="../docs/fenice-steeringwheel/index.html" />
-    <link rel="prev" title="Writing Documentation" href="writing-docs.html" /> 
+    <link rel="prev" title="Common" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,11 +43,14 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">General</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">About</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="writing-docs.html">Writing Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../about/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about/writing-docs.html">Writing Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Common</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">OpenOCD errors</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#error-error-connecting-dp-cannot-read-idr"><code class="docutils literal notranslate"><span class="pre">Error:</span> <span class="pre">Error</span> <span class="pre">connecting</span> <span class="pre">DP:</span> <span class="pre">cannot</span> <span class="pre">read</span> <span class="pre">IDR</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#error-connecting-dp-cannot-read-idr">Error connecting DP: cannot read IDR</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#conditions">CONDITIONS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#solution">SOLUTION</a></li>
 </ul>
@@ -125,10 +128,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">About</a> &raquo;</li>
+          <li><a href="index.html">Common</a> &raquo;</li>
       <li>OpenOCD errors</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/about/openocd_errors.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/common/openocd-errors.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -138,8 +141,8 @@
              
   <section class="tex2jax_ignore mathjax_ignore" id="openocd-errors">
 <h1>OpenOCD errors<a class="headerlink" href="#openocd-errors" title="Permalink to this headline">¶</a></h1>
-<section id="error-error-connecting-dp-cannot-read-idr">
-<h2><code class="docutils literal notranslate"><span class="pre">Error:</span> <span class="pre">Error</span> <span class="pre">connecting</span> <span class="pre">DP:</span> <span class="pre">cannot</span> <span class="pre">read</span> <span class="pre">IDR</span></code><a class="headerlink" href="#error-error-connecting-dp-cannot-read-idr" title="Permalink to this headline">¶</a></h2>
+<section id="error-connecting-dp-cannot-read-idr">
+<h2>Error connecting DP: cannot read IDR<a class="headerlink" href="#error-connecting-dp-cannot-read-idr" title="Permalink to this headline">¶</a></h2>
 <section id="conditions">
 <h3>CONDITIONS<a class="headerlink" href="#conditions" title="Permalink to this headline">¶</a></h3>
 <p>The following conditions can be observed by using a DAPlink programmer.</p>
@@ -170,17 +173,26 @@
 </section>
 <section id="solution">
 <h3>SOLUTION<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1) Check `VDD` voltages:
-    - [ ] Do they reach the micro?
-    - [ ] Are they the correct value?
-    - [ ] Are there short-circuits to `GND`?
-2) Check continuity on `SWDIO` and `SWCLK` lines
-    - [ ] Are the mircos&#39; pins soldered to the board?
-    - [ ] Is the micro correctly oriented on the pcb?
-3) Check the DAP connection
-    - [ ] Do the jumper-wires work?
-</pre></div>
-</div>
+<ol class="simple">
+<li><p>Check <code class="docutils literal notranslate"><span class="pre">VDD</span></code> voltages:</p>
+<ul class="simple">
+<li><p>Do they reach the micro?</p></li>
+<li><p>Are they the correct value?</p></li>
+<li><p>Are there short-circuits to <code class="docutils literal notranslate"><span class="pre">GND</span></code>?</p></li>
+</ul>
+</li>
+<li><p>Check continuity on <code class="docutils literal notranslate"><span class="pre">SWDIO</span></code> and <code class="docutils literal notranslate"><span class="pre">SWCLK</span></code> lines</p>
+<ul class="simple">
+<li><p>Are the mircos’ pins soldered to the board?</p></li>
+<li><p>Is the micro correctly oriented on the pcb?</p></li>
+</ul>
+</li>
+<li><p>Check the DAP connection</p>
+<ul class="simple">
+<li><p>Do the jumper-wires work?</p></li>
+</ul>
+</li>
+</ol>
 </section>
 </section>
 </section>
@@ -189,7 +201,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="writing-docs.html" class="btn btn-neutral float-left" title="Writing Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Common" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../docs/fenice-steeringwheel/index.html" class="btn btn-neutral float-right" title="Steering Wheel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
