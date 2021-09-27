@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Introduction &mdash; E-Agle TRT Wiki  documentation</title>
+  <title>OpenOCD errors &mdash; E-Agle TRT Wiki  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -21,8 +21,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Writing Documentation" href="writing-docs.html" />
-    <link rel="prev" title="About" href="index.html" /> 
+    <link rel="next" title="Steering Wheel" href="../docs/fenice-steeringwheel/index.html" />
+    <link rel="prev" title="Writing Documentation" href="writing-docs.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,12 +44,12 @@
               <p class="caption" role="heading"><span class="caption-text">General</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">About</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="writing-docs.html">Writing Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="openocd_errors.html">OpenOCD errors</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="openocd_errors.html#error-error-connecting-dp-cannot-read-idr"><code class="docutils literal notranslate"><span class="pre">Error:</span> <span class="pre">Error</span> <span class="pre">connecting</span> <span class="pre">DP:</span> <span class="pre">cannot</span> <span class="pre">read</span> <span class="pre">IDR</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="openocd_errors.html#conditions">CONDITIONS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="openocd_errors.html#solution">SOLUTION</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">OpenOCD errors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#error-error-connecting-dp-cannot-read-idr"><code class="docutils literal notranslate"><span class="pre">Error:</span> <span class="pre">Error</span> <span class="pre">connecting</span> <span class="pre">DP:</span> <span class="pre">cannot</span> <span class="pre">read</span> <span class="pre">IDR</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#conditions">CONDITIONS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#solution">SOLUTION</a></li>
 </ul>
 </li>
 </ul>
@@ -126,9 +126,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="index.html">About</a> &raquo;</li>
-      <li>Introduction</li>
+      <li>OpenOCD errors</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/about/introduction.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/about/openocd_errors.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -136,16 +136,61 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="openocd-errors">
+<h1>OpenOCD errors<a class="headerlink" href="#openocd-errors" title="Permalink to this headline">¶</a></h1>
+<section id="error-error-connecting-dp-cannot-read-idr">
+<h2><code class="docutils literal notranslate"><span class="pre">Error:</span> <span class="pre">Error</span> <span class="pre">connecting</span> <span class="pre">DP:</span> <span class="pre">cannot</span> <span class="pre">read</span> <span class="pre">IDR</span></code><a class="headerlink" href="#error-error-connecting-dp-cannot-read-idr" title="Permalink to this headline">¶</a></h2>
+<section id="conditions">
+<h3>CONDITIONS<a class="headerlink" href="#conditions" title="Permalink to this headline">¶</a></h3>
+<p>The following conditions can be observed by using a DAPlink programmer.</p>
+<ol class="simple">
+<li><p>Enable debug mode level <code class="docutils literal notranslate"><span class="pre">&gt;0</span></code> for openOCD, this can be done either via:</p></li>
+</ol>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">openocd</span> <span class="pre">-d3</span> <span class="pre">...other_parameters...</span></code></p></li>
+<li><p>If using the extension cortex-debug in VSCode, by adding:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ow">in</span> <span class="n">file</span> <span class="n">openocd</span><span class="o">.</span><span class="n">cfg</span>
+<span class="o">-------</span>
+<span class="n">debug_level</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<ol>
+<li><p>If the output of openocd contains:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Debug</span><span class="p">:</span> <span class="mi">229</span> <span class="mi">931</span> <span class="n">cmsis_dap</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">646</span> <span class="n">cmsis_dap_swd_read_process</span><span class="p">():</span> <span class="n">SWD</span> <span class="n">ack</span> <span class="ow">not</span> <span class="n">OK</span> <span class="o">@</span> <span class="mi">0</span> <span class="n">JUNK</span>
+<span class="n">Error</span><span class="p">:</span> <span class="mi">230</span> <span class="mi">932</span> <span class="n">adi_v5_swd</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">144</span> <span class="n">swd_connect</span><span class="p">():</span> <span class="n">Error</span> <span class="n">connecting</span> <span class="n">DP</span><span class="p">:</span> <span class="n">cannot</span> <span class="n">read</span> <span class="n">IDR</span>
+<span class="n">Debug</span><span class="p">:</span> <span class="mi">231</span> <span class="mi">932</span> <span class="n">command</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">628</span> <span class="n">run_command</span><span class="p">():</span> <span class="n">Command</span> <span class="s1">&#39;dap init&#39;</span> <span class="n">failed</span> <span class="k">with</span> <span class="n">error</span> <span class="n">code</span> <span class="o">-</span><span class="mi">4</span>
+<span class="n">User</span> <span class="p">:</span> <span class="mi">232</span> <span class="mi">932</span> <span class="n">command</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">694</span> <span class="n">command_run_line</span><span class="p">():</span>
+</pre></div>
+</div>
+<p>Then the problem is likely to be hardware, i.e. the programmer (DAPlink) is unable to connect/talk to the target via SWD. See <a class="reference external" href="https://sourceforge.net/p/openocd/mailman/openocd-devel/thread/20200706142907.GF2662%40home.paul.comp/">this</a> mailling list thread.</p>
+</li>
+</ol>
+</section>
+<section id="solution">
+<h3>SOLUTION<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1) Check `VDD` voltages:
+    - [ ] Do they reach the micro?
+    - [ ] Are they the correct value?
+    - [ ] Are there short-circuits to `GND`?
+2) Check continuity on `SWDIO` and `SWCLK` lines
+    - [ ] Are the mircos&#39; pins soldered to the board?
+    - [ ] Is the micro correctly oriented on the pcb?
+3) Check the DAP connection
+    - [ ] Do the jumper-wires work?
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="About" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="writing-docs.html" class="btn btn-neutral float-right" title="Writing Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="writing-docs.html" class="btn btn-neutral float-left" title="Writing Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../docs/fenice-steeringwheel/index.html" class="btn btn-neutral float-right" title="Steering Wheel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
