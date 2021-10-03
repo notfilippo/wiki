@@ -1,0 +1,88 @@
+# Modules
+
+
+## UART
+Several serial communication interfaces are used:
+
+| Interface | TX Pin | RX Pin | Baud Rate | Description         |
+|-----------|--------|--------|-----------|---------------------|
+| UART4     | PA12   | PA13   | 115200    | Debugging messages  |
+| ...       |        |        |           | Front Right Encoder |
+| ...       |        |        |           | Front Left Encoder  |
+| ...       |        |        |           | Steering Encoder    |
+
+For more details on the encoders, see [the dedicated section below](#encoders).
+
+
+-------------------------------------------------------------------------------
+
+
+## CAN
+Fenice's internal networks operate on two CAN buses.
+
+###### Networks
+| Network   | Interface | CAN_TX Pin | CAN_RX Pin |
+|-----------|-----------|------------|------------|
+| Primary   | CAN1      | PD1        | PD0        |
+| Secondary | CAN3      | PB4        | PA8        |
+
+###### Bit Timing Parameters
+- APB1 Peripheral Clock (PCLK1): **54 MHz**
+- Prescaler: **3**
+    - *Time Quantum is therefore 55.555 ns*
+- Time Quanta in Bit Segment 1: **12**
+- Time Quanta in Bit Segment 2: **5**
+    - *Time for one bit is therefore 999.99 ns*
+    - *Baud rate is therefore 1000000 bps (**1 Mbit/s**)*
+- ReSynchronization Jump Width: **1**
+
+###### Messages
+For the list and definition of all CAN messages please refer to the [can-cicd documentation](#?).
+
+
+-------------------------------------------------------------------------------
+
+
+## SPI
+
+
+-------------------------------------------------------------------------------
+
+
+## IMU
+
+
+-------------------------------------------------------------------------------
+
+
+## IRTS
+
+
+-------------------------------------------------------------------------------
+
+
+## Inverters
+
+
+-------------------------------------------------------------------------------
+
+
+## PCU
+
+
+-------------------------------------------------------------------------------
+
+
+## Tractive System
+
+
+-------------------------------------------------------------------------------
+
+
+## Traction Control
+
+
+-------------------------------------------------------------------------------
+
+
+## Encoders

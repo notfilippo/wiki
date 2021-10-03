@@ -1,0 +1,19 @@
+# Electronic Control Unit
+
+Fenice's ECU controls the global state of the vehicle and manages its transitions between states. For example, when the driver requests the car to enter the RUN state, the ECU will execute all needed operations and will prepare the vehicle to meet all needed constraints in order to safely move.
+
+Although its main task is rather simple, this component is actually composed of many modules. The first reason is that this apparently small state machine conceals quite a lot of abstraction, therefore needing a certain quantity of code in order to reach down to the low level of a micro-controller interface. The second reason follows from the first, meaning that all this code, in order to remain maintainable and reliable in time, needs a proper level of modularization and separation.
+
+```{toctree}
+:caption: 'Vehicle State Machine:'
+:maxdepth: 2
+
+fsm.md
+```
+
+```{toctree}
+:caption: 'ECU Modules:'
+:maxdepth: 2
+
+modules.md
+```

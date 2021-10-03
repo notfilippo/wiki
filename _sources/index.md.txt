@@ -33,3 +33,17 @@ docs/fenice-steeringwheel/index
 docs/documentation/index
 
 ```
+
+```{toctree}
+:caption: ECU
+:name: sec-fenice-ecu
+:maxdepth: 1
+
+
+docs/fenice-ecu/modules
+
+docs/fenice-ecu/index
+
+docs/fenice-ecu/fsm
+
+```
