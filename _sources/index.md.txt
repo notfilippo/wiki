@@ -35,6 +35,16 @@ docs/fenice-bms-hv/index
 ```
 
 ```{toctree}
+:caption: CAN CICD
+:name: sec-can-cicd
+:maxdepth: 1
+
+
+docs/can-cicd/index
+
+```
+
+```{toctree}
 :caption: documentation
 :name: sec-documentation
 :maxdepth: 1
