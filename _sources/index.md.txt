@@ -25,6 +25,16 @@ docs/fenice-steeringwheel/index
 ```
 
 ```{toctree}
+:caption: BMS HV
+:name: sec-fenice-bms-hv
+:maxdepth: 1
+
+
+docs/fenice-bms-hv/index
+
+```
+
+```{toctree}
 :caption: documentation
 :name: sec-documentation
 :maxdepth: 1
