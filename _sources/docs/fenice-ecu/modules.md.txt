@@ -44,45 +44,76 @@ For the list and definition of all CAN messages please refer to the [can-cicd do
 
 
 ## SPI
+The SPI interface is used to communicate with the Traction Control Unit and exchange information on vehicle state and motor torque. Since the TCU runs on a Raspberry Pi which is, by design, only capable of operating as a Master node, the ECU acts as the Slave node.
+
+| Interface | CLK Pin | ... |
+|-----------|---------|-----|
+| ...       |         |     |
+
+For more information on how and what information is exchanged, please refer to the [Traction Control](#traction-control) section below.
 
 
 -------------------------------------------------------------------------------
 
 
 ## IMU
+This module records the acceleration data coming from the Inertial Measurement Unit (IMU) sensor over the CAN network.
 
+Namely, it receives:
+- Linear acceleration on the three directions
+- Gyroscopic acceleration on the three axes
 
 -------------------------------------------------------------------------------
 
 
 ## IRTS
+Four Infra-Red Temperature Sensors (IRTSs) are pointed toward the tires and measure their temperature gradient using 8 (?) channels each (...)
 
 
 -------------------------------------------------------------------------------
 
 
 ## Inverters
+The Inverters and the ECU communicate over the CAN network and exchange the following information:
+- The ECU periodically (at which freq. ?) sends two torque values to be applied to the motors, one for the left side and one for the right side
+- The inverters periodically (every 100ms) report the contents of their status register which, among other information, contain the following fields:
+    - ...
+- The inverters periodically (every 100ms) report the output voltage at which they are driving the motors
 
 
 -------------------------------------------------------------------------------
 
 
 ## PCU
+This module controls all communication (via CAN-Bus) between the ECU and the Pedal Control Unit (PCU). More specifically:
+- ADC brake and accelerator values are read and scaled from 0 to 100
+- Errors and Warnings are checked (e.g. implausibility)
+- Calibration values are read/written from/to the EEPROM and sent/received
 
 
 -------------------------------------------------------------------------------
 
 
 ## Tractive System
+The TC code handles the generation and delivery of messages concerning the status of the BMS-HV (PRECHARGE, TS-ON, TS-OFF, ...).
 
 
 -------------------------------------------------------------------------------
 
 
 ## Traction Control
+Since the actual software for controlling the traction of the vehicle runs on a separate device (for reliability purposes), the ECU and the Traction Control Unit (TCU) need to constantly exchange a number of values.
+
+| Parameter Name | Direction  | Description |
+|----------------|------------|-------------|
+| Brake          | ECU -> TCU | How much the brake pedal is pressed |
+| ...            |            |             |
+
+Further technical details on how this data is exchanged over SPI can be found at the [TCU Protocol](#?) page.
 
 
 -------------------------------------------------------------------------------
 
 
 ## Encoders
+...
