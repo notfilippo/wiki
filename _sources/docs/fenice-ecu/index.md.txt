@@ -8,12 +8,12 @@ Although its main task is rather simple, this component is actually composed of 
 :caption: 'Vehicle State Machine:'
 :maxdepth: 2
 
-fsm.md
+fsm/fsm.md
 ```
 
 ```{toctree}
 :caption: 'ECU Modules:'
 :maxdepth: 2
 
-modules.md
+modules/modules.md
 ```

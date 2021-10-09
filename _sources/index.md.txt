@@ -60,10 +60,6 @@ docs/documentation/index
 :maxdepth: 1
 
 
-docs/fenice-ecu/modules
-
 docs/fenice-ecu/index
-
-docs/fenice-ecu/fsm
 
 ```
