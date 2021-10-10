@@ -318,7 +318,7 @@
 </section>
 <section id="messages">
 <h3>Messages<a class="headerlink" href="#messages" title="Permalink to this headline">¶</a></h3>
-<p>For the list and definition of all CAN messages please refer to the <a class="reference external" href="#../../can-cicd">can-cicd documentation</a>.</p>
+<p>For the list and definition of all CAN messages please refer to the <span class="xref myst">can-cicd documentation</span>.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -375,9 +375,144 @@
 </ul>
 <section id="status-register-contents">
 <h3>Status Register Contents<a class="headerlink" href="#status-register-contents" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>…</p></li>
-</ul>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bit</p></th>
+<th class="head"><p>Symbol</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Ena</p></td>
+<td><p>Drive Enable</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>RcR0</p></td>
+<td><p>Speed limit to zero</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Lim+</p></td>
+<td><p>Limited switch + tripped</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Lim-</p></td>
+<td><p>Limited switch - tripped</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>OK</p></td>
+<td><p>Drive okay</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Icns</p></td>
+<td><p>Current is limited to the continuous current level</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>T-Nlim</p></td>
+<td><p>Speed limit torque mode active</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>P-N</p></td>
+<td><p>Position control active</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>N-I</p></td>
+<td><p>Speed control active</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>&lt;N0</p></td>
+<td><p>Actual speed is less than 0.1%</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>Rsw</p></td>
+<td><p>Reference switch tripped</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>Cal0</p></td>
+<td><p>Calibration move active</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>Cal</p></td>
+<td><p>Calibration move completed</p></td>
+</tr>
+<tr class="row-odd"><td><p>13</p></td>
+<td><p>Tol</p></td>
+<td><p>Position within tolerance window</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>Rdy</p></td>
+<td><p>Drive ready (BTB/RDY contact closed)</p></td>
+</tr>
+<tr class="row-odd"><td><p>15</p></td>
+<td><p>Brk0</p></td>
+<td><p>Unexcited brake with motor active</p></td>
+</tr>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>SignMag</p></td>
+<td><p>Speed internally inverted</p></td>
+</tr>
+<tr class="row-odd"><td><p>17</p></td>
+<td><p>Nclip</p></td>
+<td><p>Speed limiting enabled (N-Lim &lt; 90%)</p></td>
+</tr>
+<tr class="row-even"><td><p>18</p></td>
+<td><p>Nclip+</p></td>
+<td><p>Speed limiting (+) via input switch enabled</p></td>
+</tr>
+<tr class="row-odd"><td><p>19</p></td>
+<td><p>Ncip-</p></td>
+<td><p>Speed limiting (-) via input switch enabled</p></td>
+</tr>
+<tr class="row-even"><td><p>20</p></td>
+<td><p>Ird-Dig</p></td>
+<td><p>Current limiting via input switch  enabled</p></td>
+</tr>
+<tr class="row-odd"><td><p>21</p></td>
+<td><p>Iuse-rchd</p></td>
+<td><p>Actual current limit reached</p></td>
+</tr>
+<tr class="row-even"><td><p>22</p></td>
+<td><p>Ird-N</p></td>
+<td><p>Current derating to cont. current via speed limit enabled</p></td>
+</tr>
+<tr class="row-odd"><td><p>23</p></td>
+<td><p>Ird-TI</p></td>
+<td><p>Current derating to cont. current due to igbt temp. enabled</p></td>
+</tr>
+<tr class="row-even"><td><p>24</p></td>
+<td><p>Ird-TIR</p></td>
+<td><p>Current derating to cont. current due to igbt temp. active</p></td>
+</tr>
+<tr class="row-odd"><td><p>25</p></td>
+<td><p>&gt;10Hz</p></td>
+<td><p>Current derating to cont. current at rotation freq. &lt; 10 Hz active</p></td>
+</tr>
+<tr class="row-even"><td><p>26</p></td>
+<td><p>Ird-TM</p></td>
+<td><p>Current derating to cont. current due to motor temp. active</p></td>
+</tr>
+<tr class="row-odd"><td><p>27</p></td>
+<td><p>Ird-Ana</p></td>
+<td><p>Current derating due to analog input (if &lt;= 90%) possible</p></td>
+</tr>
+<tr class="row-even"><td><p>28</p></td>
+<td><p>Iwcns</p></td>
+<td><p>Current peak value warning</p></td>
+</tr>
+<tr class="row-odd"><td><p>29</p></td>
+<td><p>RFEpulse</p></td>
+<td><p>Pulsed RFE - input monitoring active</p></td>
+</tr>
+<tr class="row-even"><td><p>30</p></td>
+<td><p>M+d</p></td>
+<td><p>vacant</p></td>
+</tr>
+<tr class="row-odd"><td><p>31</p></td>
+<td><p>HndWhl</p></td>
+<td><p>Hand-wheel function selected</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="current-torque-curve-and-power-limiting">
 <h3>Current-Torque Curve and Power Limiting<a class="headerlink" href="#current-torque-curve-and-power-limiting" title="Permalink to this headline">¶</a></h3>
@@ -388,7 +523,7 @@
                                 id="ID"
                                 style="border:1px solid #666CCC"
                                 title="PDF"
-                                src="Powertrain_Transmission_Optimal_Parameters.pdf"
+                                src="./Powertrain_Transmission_Optimal_Parameters.pdf"
                                 frameborder="1"
                                 scrolling="auto"
                                 height="400"
