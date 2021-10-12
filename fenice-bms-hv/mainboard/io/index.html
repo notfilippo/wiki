@@ -14,7 +14,7 @@
     
     
       
-        <title>Io - Eagle TRT</title>
+        <title>I/O - Eagle TRT</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#io-overview" class="md-skip">
+        <a href="#io" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Io
+              I/O
             
           </span>
         </div>
@@ -393,14 +393,14 @@
       
       
         <label class="md-nav__link" for="__nav_4">
-          Fenice bms hv
+          High-Voltage BMS
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Fenice bms hv" data-md-level="1">
+      <nav class="md-nav" aria-label="High-Voltage BMS" data-md-level="1">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
-          Fenice bms hv
+          High-Voltage BMS
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -464,10 +464,60 @@
               
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        I/O
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_3" type="checkbox" id="__nav_4_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2_3">
+          Subsystems
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Subsystems" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Subsystems
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
   
     <li class="md-nav__item">
-      <a href="../bms_fsm/" class="md-nav__link">
-        Bms fsm
+      <a href="../subsystems/bms_cli/" class="md-nav__link">
+        Command Line Interface
       </a>
     </li>
   
@@ -478,47 +528,18 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Io
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Io
+    <li class="md-nav__item">
+      <a href="../subsystems/bms_fsm/" class="md-nav__link">
+        Main State Machine
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+    </li>
   
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#io-overview" class="md-nav__link">
-    I/O Overview
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -994,21 +1015,8 @@
   
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#io-overview" class="md-nav__link">
-    I/O Overview
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1021,20 +1029,20 @@
               
                 
                 
-                  <h1>Io</h1>
-                
-                <h2 id="io-overview">I/O Overview</h2>
-<p>There are many peripherals and devices connected to the mainboard. Every component that interfaces with the mainboard's microcontroller is listed here:
-- <strong>CAN-buses</strong> (CAN): A CAN-bus to communicate with the car and an internal isolated bus for handling the cellboards.
-- <strong>Si8900 isolated ADC</strong> (UART): Used to measure pack and bus voltages, and is also used to measure the pack current using a shunt resistor.
-- <strong>DAHB S/160 Hall-effect sensor</strong> (ADC): Used to measure pack current. Less precise than the shunt, included for historic reasons. The unit contains two sensors with different gains to have a broader current range.
-- <strong>AIR and pre-charge controls</strong>: Three output pins control the actuation of the AIRs (if the shutdown circuit is not latched in the off state) and the pre-charge circuit.
-- <strong>Circuit feedbacks</strong> (MUX/ADC): 16 multiplexed analog signals coming from the mainboard's circuit. Used to diagnose the circuit and to verify its correct state compared to the BMS state. Some of those feedbacks are not multiplexed to permit the generation of interrupts from them.
-- <strong>IMD Status</strong> (PWM): The IMD has an output PWM signal that reports its internal state.
-- <strong>M95256 EEPROM</strong> (SPI): Used to store runtime variables and data, such as state of charge information, balancing threshold and more.
-- <strong>SD-card</strong> (SPI): An SD-card is included on the mainboard to be used as storage for extended logs.
-- <strong>User console</strong> (UART): A serial interface is reserved as an user interface to read/write data and execute commands. The <a href="https://github.com/eagletrt/micro-libs/tree/master/cli">cli</a> library is used as an interface.
-- <strong>GPIOs</strong>: 9 GPIO pins for external stuff.</p>
+                <h1 id="io">I/O</h1>
+<p>There are many peripherals and devices connected to the mainboard. Every component that interfaces with the mainboard's microcontroller is listed here:</p>
+<ul>
+<li><strong>CAN-buses</strong> (CAN): A CAN-bus to communicate with the car and an internal isolated bus for handling the cellboards.</li>
+<li><strong>Si8900 isolated ADC</strong> (UART): Used to measure pack and bus voltages, and is also used to measure the pack current using a shunt resistor.</li>
+<li><strong>DAHB S/160 Hall-effect sensor</strong> (ADC): Used to measure pack current. Less precise than the shunt, included for historic reasons. The unit contains two sensors with different gains to have a broader current range.</li>
+<li><strong>AIR and pre-charge controls</strong>: Three output pins control the actuation of the AIRs (if the shutdown circuit is not latched in the off state) and the pre-charge circuit.</li>
+<li><strong>Circuit feedbacks</strong> (MUX/ADC): 16 multiplexed analog signals coming from the mainboard's circuit. Used to diagnose the circuit and to verify its correct state compared to the BMS state. Some of those feedbacks are not multiplexed to permit the generation of interrupts from them.</li>
+<li><strong>IMD Status</strong> (PWM): The IMD has an output PWM signal that reports its internal state.</li>
+<li><strong>M95256 EEPROM</strong> (SPI): Used to store runtime variables and data, such as state of charge information, balancing threshold and more.</li>
+<li><strong>SD-card</strong> (SPI): An SD-card is included on the mainboard to be used as storage for extended logs.</li>
+<li><strong>User console</strong> (UART): A serial interface is reserved as an user interface to read/write data and execute commands. The <a href="https://github.com/eagletrt/micro-libs/tree/master/cli">cli</a> library is used as an interface.</li>
+<li><strong>GPIOs</strong>: 9 GPIO pins for external stuff.</li>
+</ul>
 <p><img alt="Mainboard's I/O configuration" src="../../pics/mainboard_cubemx.png" /></p>
                 
               
@@ -1055,7 +1063,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../bms_fsm/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Bms fsm" rel="prev">
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Mainboard" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1064,20 +1072,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Bms fsm
+              Mainboard
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../../fenice-ecu/" class="md-footer__link md-footer__link--next" aria-label="Next: Electronic Control Unit" rel="next">
+        <a href="../subsystems/bms_cli/" class="md-footer__link md-footer__link--next" aria-label="Next: Command Line Interface" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Electronic Control Unit
+              Command Line Interface
             </div>
           </div>
           <div class="md-footer__button md-icon">

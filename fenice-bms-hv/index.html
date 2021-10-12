@@ -393,14 +393,14 @@
       
       
         <label class="md-nav__link" for="__nav_4">
-          Fenice bms hv
+          High-Voltage BMS
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Fenice bms hv" data-md-level="1">
+      <nav class="md-nav" aria-label="High-Voltage BMS" data-md-level="1">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
-          Fenice bms hv
+          High-Voltage BMS
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -474,8 +474,48 @@
   
   
     <li class="md-nav__item">
-      <a href="mainboard/bms_fsm/" class="md-nav__link">
-        Bms fsm
+      <a href="mainboard/io/" class="md-nav__link">
+        I/O
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_3" type="checkbox" id="__nav_4_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2_3">
+          Subsystems
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Subsystems" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Subsystems
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mainboard/subsystems/bms_cli/" class="md-nav__link">
+        Command Line Interface
       </a>
     </li>
   
@@ -488,9 +528,16 @@
   
   
     <li class="md-nav__item">
-      <a href="mainboard/io/" class="md-nav__link">
-        Io
+      <a href="mainboard/subsystems/bms_fsm/" class="md-nav__link">
+        Main State Machine
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -984,11 +1031,6 @@
 <p>Battery management is a collection of operations that ensure the safety and efficiency of the battery pack. A basic battery management system should constantly measure cell temperatures and voltages along with the total pack current output and check that each of those values is within specification. If anomalies are detected, the battery should be disconnected immediately via the AIRs.
 A good battery management system is also able to keep the battery in good operating conditions, with the goal of maintaining the expected efficiency of the powertrain.</p>
 <p>The need of collecting a lot of data from all over the pack has dictated a scattered architecture for the BMS, that uses multiple data acquisition boards (cellboards) and a single control board (mainboard).</p>
-<div class="highlight"><pre><span></span><code>:caption: &#39;Mainboard:&#39;
-:maxdepth: 2
-
-mainboard/index
-</code></pre></div>
                 
               
               
