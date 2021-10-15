@@ -4,7 +4,7 @@ digraph common_fsm {
     subgraph engine {
         style=filled
         color=grey
-        label="Effects engine"
+        label="Logger"
         node [shape=ellipse,style=filled,color=lightgrey]
         "Init()"
         node [shape=ellipse]
