@@ -269,6 +269,62 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="id_generator/" class="md-nav__link">
+        Message IDs generator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="includes_generator/" class="md-nav__link">
+        Includes generator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="naked_generator/" class="md-nav__link">
+        Naked Generator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sheet_generator/" class="md-nav__link">
+        Sheet generator
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1112,11 +1168,11 @@
 and the interactions with the bus itself</p>
 <h2 id="subprojects">Subprojects</h2>
 <p><img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> project root\
-  ├ <img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> <a href="id_generator">id_generator</a>\
-  ├ <img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> <a href="flatbuf_generator">flatbuf_generator</a>\
-  ├ <img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> <a href="naked_generator">naked_generator</a>\
-  ├ <img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> <a href="includes_generator">includes_generator</a>\
-  └ <img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> <a href="sheet_generator">sheet_generator</a></p>
+  ├ <img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> <a href="../id_generator">id_generator</a>\
+  ├ <img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> <a href="../flatbuf_generator">flatbuf_generator</a>\
+  ├ <img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> <a href="../naked_generator">naked_generator</a>\
+  ├ <img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> <a href="../includes_generator">includes_generator</a>\
+  └ <img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> <a href="../sheet_generator">sheet_generator</a></p>
 <h1 id="how-to-use">How to Use</h1>
 <p>Before running any of the subprojects you will need to do the following:</p>
 <h2 id="configure-your-networks">Configure your network(s)</h2>
@@ -1184,7 +1240,7 @@ ___
 
 <div class="highlight"><pre><span></span><code><span class="s">&quot;topic&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
 </code></pre></div>
-Required by: [id_generator](id_generator)
+Required by: [id_generator](../id_generator)
 
 This field can be the same across **at most 64 messages**, meaning a topic can contain at most 64 messages.
 The characters you should use are all UPPERCASE letters and "_", additionally it can't be named FIXED_IDS as it is
@@ -1195,7 +1251,7 @@ ___
 
 <div class="highlight"><pre><span></span><code><span class="s">&quot;priority&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">int</span>
 </code></pre></div>
-Required by: [id_generator](id_generator)
+Required by: [id_generator](../id_generator)
 
 This field can can be an **integer from 0 to 7**, the higher the value the more important the message.
 You can have **at most 8 messages** with the same combination of **priority and topic**, if you have more you must create a new topic or assign a different priority to some of them.
@@ -1236,7 +1292,7 @@ ___
 <span class="p p-Indicator">}</span>
 </code></pre></div>
 
-Required by: [flatbuf_generator](flatbuf_generator)
+Required by: [flatbuf_generator](../flatbuf_generator)
 
 
 This field describes the message's payload, can be left empty. The overall size can be **at most 8 bytes**.\
@@ -1302,9 +1358,9 @@ The json structure is as follows:
 <p>This project can be used in a couple of ways, the first one being the coolest:</p>
 <h3 id="the-automated-way">The automated way</h3>
 <p><img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> project root\
-  └ <img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> <a href="networks">networks</a></p>
+  └ <img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /> <a href="../networks">networks</a></p>
 <p>Any <strong>commit</strong> to this directory will trigger GitHub's actions workflow as described in 
-<a href=".github/workflows/run-all.yml">this file</a>. You will find the generated files in the branch <strong>build</strong> under the <strong><img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /></strong> folder 
+<a href="../.github/workflows/run-all.yml">this file</a>. You will find the generated files in the branch <strong>build</strong> under the <strong><img alt="📂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c2.svg" title=":open_file_folder:" /></strong> folder 
 named after each submodule.</p>
 <h3 id="the-manual-way">The manual way</h3>
 <p>Any subproject is a standalone module. However some subprojects may have the specific job to generate configurations
@@ -1345,13 +1401,13 @@ must use the projects in the <strong>specific order</strong> <a href="#subprojec
       
       
         
-        <a href="../common/about/writing-docs/" class="md-footer__link md-footer__link--next" aria-label="Next: Writing Documentation" rel="next">
+        <a href="id_generator/" class="md-footer__link md-footer__link--next" aria-label="Next: Message IDs generator" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Writing Documentation
+              Message IDs generator
             </div>
           </div>
           <div class="md-footer__button md-icon">
