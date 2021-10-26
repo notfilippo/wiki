@@ -755,6 +755,26 @@
     Encoders
   </a>
   
+    <nav class="md-nav" aria-label="Encoders">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wheels" class="md-nav__link">
+    Wheels
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steering" class="md-nav__link">
+    Steering
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1318,6 +1338,26 @@
     Encoders
   </a>
   
+    <nav class="md-nav" aria-label="Encoders">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wheels" class="md-nav__link">
+    Wheels
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steering" class="md-nav__link">
+    Steering
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1335,7 +1375,7 @@
                 
                 <h1 id="modules">Modules</h1>
 <h2 id="uart">UART</h2>
-<p>Several serial communication interfaces are used:</p>
+<p>Four devices make use of serial communication: a textual UART for debugging messages, two wheel encoders, and one steering encoder. Among these, however, only the debugging UART is directly interfaced with the STM serial controller:</p>
 <table>
 <thead>
 <tr>
@@ -1354,30 +1394,29 @@
 <td>115200</td>
 <td>Debugging messages</td>
 </tr>
+</tbody>
+</table>
+<p>The serial signal from the wheel encoders instead, is decoded by transceivers on the DAS board that, in turn, feed two timer channels each that operate in <em>Encoder Mode</em>. Further details on the interfacing with timers are given in the <a href="#timer">Timer section</a>, while information on their decoding is available in the <a href="#encoders">Encoders section</a>.</p>
+<!-- TODO: Add steering encoder info -->
+
+<table>
+<thead>
 <tr>
-<td>...</td>
-<td></td>
-<td></td>
-<td></td>
-<td>Front Right Encoder</td>
+<th>Device</th>
+<th>Protocol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wheel Encoders (<code>LM13ICD40AB10F00</code>)</td>
+<td>RS422</td>
 </tr>
 <tr>
-<td>...</td>
-<td></td>
-<td></td>
-<td></td>
-<td>Front Left Encoder</td>
-</tr>
-<tr>
-<td>...</td>
-<td></td>
-<td></td>
-<td></td>
-<td>Steering Encoder</td>
+<td>Steer Encoder  (<code>RM44SC0012B10F2F10</code>)</td>
+<td>RS422</td>
 </tr>
 </tbody>
 </table>
-<p>For more details on the encoders, see <a href="#encoders">the dedicated section below</a>.</p>
 <hr />
 <h2 id="timers">Timers</h2>
 <p>List of STM timers employed:</p>
@@ -1385,18 +1424,34 @@
 <thead>
 <tr>
 <th>Timer</th>
-<th>Pin</th>
+<th>Mode</th>
+<th>Pins</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td>TIM2</td>
+<td>Combined Channels: Encoder Mode</td>
+<td>PA15 (CH1), PB3 (CH2)</td>
+<td>Left wheel encoder</td>
+</tr>
+<tr>
+<td>TIM5</td>
+<td>Combined Channels: Encoder Mode</td>
+<td>PA0 (CH1), PA1 (CH2)</td>
+<td>Right wheel encoder</td>
+</tr>
+<tr>
 <td>TIM10</td>
+<td>Channel1: PWM Generation CH1</td>
 <td>PB8</td>
 <td>Buzzer PWM output</td>
 </tr>
 </tbody>
 </table>
+<!-- TODO: Document other timer options -->
+
 <hr />
 <h2 id="buzzer">Buzzer</h2>
 <p>As required by the rulebook, the ECU must beep a buzzer for at least (?) ...</p>
@@ -1748,6 +1803,22 @@ C_{mot\_max} =
 <p>Further technical details on how this data is exchanged over SPI can be found at the <a href="#?">TCU Protocol</a> page.</p>
 <hr />
 <h2 id="encoders">Encoders</h2>
+<p>Magnetic rotative encoders are used to read angular speed from wheels and absolute position from steering.</p>
+<h6 id="wheels">Wheels</h6>
+<p>Wheel encoders are composed of a magnetic ring and a read head. Following, is the data-sheet of the read head where its characteristics are described:</p>
+<p><object
+    data="../LM13D02_05_EN_data_sheet.pdf"
+    type="application/pdf"
+    style="width: 100%; height: 400px"
+>
+    <embed src="../LM13D02_05_EN_data_sheet.pdf" type="application/pdf" />
+</object>
+</p>
+<p>Decoding the part number (<code>LM13ICD40AB10F00</code>) and referencing the various tables gives the following key points:</p>
+<p><img alt="..." src="../imgs/wheel_encoder_partno.png" /></p>
+<p>Most importantly, we must note that at maximum measurable speed (18.67 m/s, on the ring), each timer will be fed with two 8 MHz signals, leading to 4 million increments/decrements per second. TIM2 and TIM5 have been chosen specifically for their 32-bits counter registers (in contrast with other timers' 16-bits counters) so that they can receive up to 4'294'967'296 pulses before overflowing (instead of 65536 for 16 bits). Consequently, while 16 bit timers would need to be read and reset at most every 16 milliseconds, TIM2 and TIM5 could allow for correct counting for over 17 minutes. Nonetheless, for efficient decoding and to avoid periodic overflows, timer counters should be reset to 0 after every read, which as said, is now free to happen at lower frequencies than every 16 milliseconds, if needed.</p>
+<p>For information on timer configuration on the STM, see the <a href="#timers">Timers section</a>.</p>
+<h6 id="steering">Steering</h6>
 <p>...</p>
                 
               
