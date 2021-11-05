@@ -14,7 +14,7 @@
     
     
       
-        <title>High-Voltage Battery Management System - Eagle TRT</title>
+        <title>Documentation! - Eagle TRT</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#high-voltage-battery-management-system" class="md-skip">
+        <a href="#documentation" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              High-Voltage Battery Management System
+              Documentation!
             
           </span>
         </div>
@@ -191,12 +191,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -217,11 +219,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../c-template/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Documentation!
       </a>
+      
     </li>
   
 
@@ -415,14 +427,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
       
       
@@ -443,21 +453,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../fenice-bms-hv/" class="md-nav__link">
         High-Voltage Battery Management System
       </a>
-      
     </li>
   
 
@@ -495,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="mainboard/" class="md-nav__link">
+      <a href="../fenice-bms-hv/mainboard/" class="md-nav__link">
         Mainboard
       </a>
     </li>
@@ -509,7 +509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="mainboard/io/" class="md-nav__link">
+      <a href="../fenice-bms-hv/mainboard/io/" class="md-nav__link">
         I/O
       </a>
     </li>
@@ -549,7 +549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="mainboard/subsystems/bms_cli/" class="md-nav__link">
+      <a href="../fenice-bms-hv/mainboard/subsystems/bms_cli/" class="md-nav__link">
         Command Line Interface
       </a>
     </li>
@@ -563,7 +563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="mainboard/subsystems/bms_fsm/" class="md-nav__link">
+      <a href="../fenice-bms-hv/mainboard/subsystems/bms_fsm/" class="md-nav__link">
         Main State Machine
       </a>
     </li>
@@ -1062,10 +1062,9 @@
               
                 
                 
-                <h1 id="high-voltage-battery-management-system">High-Voltage Battery Management System</h1>
-<p>Battery management is a collection of operations that ensure the safety and efficiency of the battery pack. A basic battery management system should constantly measure cell temperatures and voltages along with the total pack current output and check that each of those values is within specification. If anomalies are detected, the battery should be disconnected immediately via the AIRs.
-A good battery management system is also able to keep the battery in good operating conditions, with the goal of maintaining the expected efficiency of the powertrain.</p>
-<p>The need of collecting a lot of data from all over the pack has dictated a scattered architecture for the BMS, that uses multiple data acquisition boards (cellboards) and a single control board (mainboard).</p>
+                <h1 id="documentation">Documentation!</h1>
+<p>This page will be published to <a href="https://eagletrt.wiki">eagletrt.wiki</a>. For info on how to use the wiki, refer to <a href="https://eagletrt.wiki/common/about/writing-docs/">this guide</a> and have a look around some other wiki pages.</p>
+<p>Remember to test locally before pushing this folder!</p>
                 
               
               
@@ -1085,7 +1084,7 @@ A good battery management system is also able to keep the battery in good operat
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../documentation/conf/" class="md-footer__link md-footer__link--prev" aria-label="Previous: -- Project information -----------------------------------------------------" rel="prev">
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: E-Agle TRT Wiki" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1094,20 +1093,20 @@ A good battery management system is also able to keep the battery in good operat
               <span class="md-footer__direction">
                 Previous
               </span>
-              -- Project information -----------------------------------------------------
+              E-Agle TRT Wiki
             </div>
           </div>
         </a>
       
       
         
-        <a href="mainboard/" class="md-footer__link md-footer__link--next" aria-label="Next: Mainboard" rel="next">
+        <a href="../common/about/writing-docs/" class="md-footer__link md-footer__link--next" aria-label="Next: Writing Documentation" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Mainboard
+              Writing Documentation
             </div>
           </div>
           <div class="md-footer__button md-icon">
