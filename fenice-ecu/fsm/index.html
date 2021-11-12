@@ -434,9 +434,110 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Finite State Machine
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Finite State Machine
       </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#states" class="md-nav__link">
+    States:
+  </a>
+  
+    <nav class="md-nav" aria-label="States:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#init" class="md-nav__link">
+    Init
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idle" class="md-nav__link">
+    Idle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#precharge" class="md-nav__link">
+    Precharge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inv-updates-activation" class="md-nav__link">
+    Inv. Updates Activation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inv-drive-activation" class="md-nav__link">
+    Inv. Drive Activation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    Run
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inv-drive-deactivation" class="md-nav__link">
+    Inv. Drive Deactivation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inv-updates-deactivation" class="md-nav__link">
+    Inv. Updates Deactivation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discharge" class="md-nav__link">
+    Discharge
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -835,6 +936,90 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#states" class="md-nav__link">
+    States:
+  </a>
+  
+    <nav class="md-nav" aria-label="States:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#init" class="md-nav__link">
+    Init
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idle" class="md-nav__link">
+    Idle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#precharge" class="md-nav__link">
+    Precharge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inv-updates-activation" class="md-nav__link">
+    Inv. Updates Activation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inv-drive-activation" class="md-nav__link">
+    Inv. Drive Activation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    Run
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inv-drive-deactivation" class="md-nav__link">
+    Inv. Drive Deactivation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inv-updates-deactivation" class="md-nav__link">
+    Inv. Updates Deactivation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discharge" class="md-nav__link">
+    Discharge
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -847,6 +1032,29 @@
                 
                 
                 <h1 id="finite-state-machine">Finite State Machine</h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This document is no way definitive or contains reliable information</p>
+</div>
+<h3 id="states">States:</h3>
+<h6 id="init">Init</h6>
+<p>The microcontroller is initializing its state and peripherals.</p>
+<h6 id="idle">Idle</h6>
+<p>The ECU is ready to operate and receive inputs. Upon a <code>TS_ON</code> request, enter the <code>precharge</code> state.</p>
+<h6 id="precharge">Precharge</h6>
+<p>Send the BMS-HV a <code>TS_ON</code> message and wait for its <code>precharge</code> to complete, then enter the <code>inv_updates_activation</code> state.</p>
+<h6 id="inv-updates-activation">Inv. Updates Activation</h6>
+<p>Ask the inverters to start reporting the contents of their status registers every 100ms. When the request is fulfilled, enter the <code>inv_drive_activation</code> state.</p>
+<h6 id="inv-drive-activation">Inv. Drive Activation</h6>
+<p>Enable the inverters (Drive Mode) and upon confirmation enter the <code>run</code> state.</p>
+<h6 id="run">Run</h6>
+<p>Read pedal values from the PCU and forward them to the Control Unit and/or the inverters. Upon a <code>TS_OFF</code> request, enter the <code>inv_drive_deactivation</code> state.</p>
+<h6 id="inv-drive-deactivation">Inv. Drive Deactivation</h6>
+<p>Disable the inverters and upon confirmation enter the <code>inv_updates_deactivation</code> state.</p>
+<h6 id="inv-updates-deactivation">Inv. Updates Deactivation</h6>
+<p>Stop the inverters status reports and enter the <code>discharge</code> state.</p>
+<h6 id="discharge">Discharge</h6>
+<p>Send the BMS-HV a <code>TS_OFF</code> request and, upon fulfillment, enter the idle state.</p>
                 
               
               
