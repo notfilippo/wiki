@@ -1186,6 +1186,8 @@ SD IMD BMS pinout:</p>
 <li>12 - RESET</li>
 </ul>
 <p>The mapping between the Amphenol connector and the others is self-explanatory,I’m not going to talk about it.</p>
+<h3 id="the-handcart-wiring-pcb-connectors">The handcart wiring &amp; PCB connectors</h3>
+<p>All the Shutdown cables in the wiring have purple color</p>
 <h2 id="the-shutdown-circuit">The shutdown circuit</h2>
 <p>The shutdown circuit is generated from the PSU, then it passes through the mushroom, to a relay which is controlled by the rasp, then TO_CHARGER, which is the interlock of the connector of the brusa, and then FROM_CHARGER to BMS’s SD, then out of the BMS, to the TSMS key, then in to the BMS again to the airs.
 Note that the PON (Power ON) of the BRUSA is powered from the shutdown circuit, this way, if the shutdown is opened, the BRUSA is instantaneously disabled.</p>
@@ -1271,6 +1273,10 @@ If you need the handcart working as fast as possible, just download the <a href=
 <h2 id="diagram-links">Diagram links</h2>
 <p>https://lucid.app/lucidchart/invitations/accept/dbc53a3d-c901-4d6a-a692-972de6713d43
 https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md</p>
+<h1 id="decisions-and-info">Decisions and info</h1>
+<ul>
+<li>EV 4.5.10 Tells that "Every TS connector outside of a housing must include a pilot contact/interlock line which is part of the shutdown circuit. Housings only used to avoid interlocks are prohibited." We have the black connector named "Anderson" which connects the brusa to the adaptor caple for the different accumulators, we want to put it in a container beacuse of the fact that TSMP and resistor has to be placed somewhere, and we didn't like the idea of putting them directly on the cables or the connector. This way we can leave it without the interlock connected to the shutdown.</li>
+</ul>
                 
               
               
