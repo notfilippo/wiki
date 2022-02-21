@@ -327,16 +327,30 @@
       
       
         <label class="md-nav__link" for="__nav_3_2">
-          Shared
+          General Documentation Files
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Shared" data-md-level="2">
+      <nav class="md-nav" aria-label="General Documentation Files" data-md-level="2">
         <label class="md-nav__title" for="__nav_3_2">
           <span class="md-nav__icon md-icon"></span>
-          Shared
+          General Documentation Files
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../can-config/" class="md-nav__link">
+        CAN-bus Configuration
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -477,7 +491,7 @@
   
     <li class="md-nav__item">
       <a href="../openocd-errors/" class="md-nav__link">
-        OpenOCD errors
+        OpenOCD Troubleshooting
       </a>
     </li>
   
@@ -1134,22 +1148,26 @@
                 
                 <h1 id="can-bus-troubleshooting">CAN-bus Troubleshooting</h1>
 <h2 id="step-1-check-your-configuration">Step 1: Check Your Configuration</h2>
-<p>[...]</p>
+<p>Check that your CubeMX configuration and your code precisely match what is detailed in <a href="../can-config/">CAN-bus Configuration</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be sure to activate all error interrupts and log them properly, otherwise you'll have no way of knowing what is failing and how to fix it.</p>
+</div>
 <h2 id="step-2-follow-this-flowchart">Step 2: Follow This Flowchart</h2>
-<p>Find your problem in the flowchart below and more details on the next chapter.</p>
-<p><img alt="CAN Troubleshooting Flowchart" src="../can-flowchart.png" /></p>
+<p>Find your problem in the flowchart below and more details in the next chapter.</p>
+<p><img alt="CAN Troubleshooting Flowchart" src="../imgs/can-flowchart.png" /></p>
 <h2 id="step-3-find-more-details-from-the-flowchart">Step 3: Find More Details From The Flowchart</h2>
 <p>Look for the paragraph regarding your problem and read through.</p>
 <h4 id="can-transceiver-not-communicating-with-the-mcu">CAN Transceiver not communicating with the MCU</h4>
-<p>While the CAN bus operates on two differential lines, the MCU uses a serial protocol, for which a transceiver is needed (for instance, an MCP2562) that translates the CAN_H and CAN_L signals into CAN_TX and CAN_RX. Absence of communication with this device cause the <code>HAL_CAN_Start</code> call to fail with a timeout error.</p>
+<p>While the CAN bus operates on two differential lines, the MCU uses a serial protocol, for which a transceiver is needed (for instance, an MCP2562) that translates the CAN_H and CAN_L signals into CAN_TX and CAN_RX. Absence of communication with this device causes the <code>HAL_CAN_Start</code> call to fail with a timeout error.</p>
 <div class="admonition check">
 <p class="admonition-title">Check</p>
 <p>Check continuity between all relevant pins of the transceiver, the CAN socket, and the MCU pins. Try swapping the transceiver with a new one.</p>
 </div>
 <hr />
 <h4 id="termination-resistors-not-present-or-of-incorrect-value">Termination resistors not present or of incorrect value</h4>
-<p><img alt="CAN bus layout" src="../can-bus.png" /></p>
-<p>On a CAN network it is very important that the bus is terminated on both sides by a 120 <span class="arithmatex">\(\Omega\)</span> resistor (<a href="https://e2e.ti.com/blogs_/b/industrial_strength/posts/the-importance-of-termination-networks-in-can-transceivers">interesting article on why</a>). Also note that some devices might already incorporate a termination resistor on their end, so pay attention at how many you put.</p>
+<p><img alt="CAN bus layout" src="../imgs/can-bus.png" /></p>
+<p>On a CAN network it is very important that the bus is terminated on both sides by a 120 <span class="arithmatex">\(\Omega\)</span> resistor (<a href="https://e2e.ti.com/blogs_/b/industrial_strength/posts/the-importance-of-termination-networks-in-can-transceivers">interesting article on why</a>). Also note that some devices might already incorporate a termination resistor on their end, so pay attention to how many you put.</p>
 <div class="admonition check">
 <p class="admonition-title">Check</p>
 <p>Verify that resistors are properly connected to the bus and are of the correct value. Check schematics and datasheets for already-present termination resistors on the connected nodes. Use an oscilloscope to ensure that the quality of the signal is good.</p>
@@ -1220,10 +1238,22 @@
 </div>
 <hr />
 <h4 id="filters-not-configured-properly">Filters not configured properly</h4>
-<p>[...]</p>
+<p>If a message is discarded by a hardware filter you will not receive interrupts of any kind.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Disabling filters will cause every message to be discarded, contrary to what you might expect.</p>
+</div>
+<div class="admonition check">
+<p class="admonition-title">Check</p>
+<p>Carefully read the filter configuration section in <a href="../can-config/">CAN-bus Configuration</a> and ensure your filters are behaving as you intend.</p>
+</div>
 <hr />
 <h4 id="interrupts-not-configured-properly">Interrupts not configured properly</h4>
-<p>[...]</p>
+<p>For interrupts to be raised by the MCU, they need to be properly configured both from CubeMX and in your code.</p>
+<div class="admonition check">
+<p class="admonition-title">Check</p>
+<p>Verify that you followed the correct procedure detailed in the Interrupt section in <a href="../can-config/">CAN-bus Configuration</a>.</p>
+</div>
                 
               
               
@@ -1243,7 +1273,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../../about/writing-docs/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Writing Documentation" rel="prev">
+        <a href="../can-config/" class="md-footer__link md-footer__link--prev" aria-label="Previous: CAN-bus Configuration" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1252,20 +1282,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Writing Documentation
+              CAN-bus Configuration
             </div>
           </div>
         </a>
       
       
         
-        <a href="../openocd-errors/" class="md-footer__link md-footer__link--next" aria-label="Next: OpenOCD errors" rel="next">
+        <a href="../openocd-errors/" class="md-footer__link md-footer__link--next" aria-label="Next: OpenOCD Troubleshooting" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              OpenOCD errors
+              OpenOCD Troubleshooting
             </div>
           </div>
           <div class="md-footer__button md-icon">
